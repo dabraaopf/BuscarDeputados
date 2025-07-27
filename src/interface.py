@@ -26,6 +26,12 @@ class GUI():
         self._color_pallet = self._get_colors()
         self._set_window()
         self._create_layout()
+        self._pages = {
+            "main" : MainContent(self._frames["content"], self._color_pallet),
+            "details" : InfoContent(self._frames["content"], self._color_pallet),
+            "log" : LogContent(self._frames["content"],self._color_pallet),
+        }
+        self._draw_menus()
         
     def _get_colors(self):
         return {
@@ -38,7 +44,7 @@ class GUI():
             "button-foreground-enabled" : "#DCEDC2",
             "button-foreground-disabled" : "#2A363B",
             "label-background-enabled" : "#FFFFFF",
-            "label-foregroud-enabled" : "#FF847C",
+            "label-foreground-enabled" : "#FF847C",
             "label-background-disabled" : "#FFFFFF",
             "label-foregroud-disabled" : "#355C7D",
             "entry-background-enabled" : "#FFFFFF",
@@ -51,6 +57,7 @@ class GUI():
             "header-background" : "#99B898",
             "header-foreground" : "#DCEDC2"
         }
+
     def _read_configs(self):
         log = self._get_logger()
         result = {}
@@ -84,7 +91,7 @@ class GUI():
 
     def _create_layout(self):
         self._create_header()
-        self._create_side_bar(slide=True)
+        self._create_side_bar()
         self._create_bottom_bar()
         self._create_pages()
 
@@ -120,55 +127,101 @@ class GUI():
             relx=0.75, rely=0.7, relwidth=0.24, relheight=0.3
         )
 
-    def _create_side_bar(self, menus=["Main","Logs","Details"], slide=False):
+    def _draw_menus(self):
+        for menu in self._pages.keys():
+            captilized = f"{menu[0].upper()}{menu[1:]}"
+            self._side_menu_options[menu] = Tk.Label(
+                self._frames['sidebar'],
+                name=menu,
+                text=f"{captilized}",
+                fg=self._color_pallet['menu-foreground'],
+                bg=self._color_pallet['menu-background'],
+                font=('Arial', 14, 'bold')
+            )
+            self._side_menu_options[menu].bind('<Button-1>', self._load_page)
+            self._side_menu_options[menu].bind('<Enter>', self._invert_colors)
+            self._side_menu_options[menu].bind('<Leave>', self._invert_colors)
+
+    def _create_side_bar(self):
         self._frames["sidebar"] = Tk.Frame(
             self._root, 
             name="sidebar",
             bg = self._color_pallet["menu-background"]
         )
         self._frames["sidebar"].place(
-            relx=0.8, rely=0.1, relheight=0.85, relwidth=0.2
+            relx=0.95, rely=0.1, relheight=0.85, relwidth=0.05
         )
-        top = 0.05
-        for menu in menus:
-            menu_lower = menu.lower()
-            self._side_menu_options[menu_lower] = Tk.Label(
-                self._frames['sidebar'],
-                name=menu_lower,
-                text=menu,
-                fg=self._color_pallet['menu-foreground'],
-                bg=self._color_pallet['menu-background'],
-                font=('Arial', 14, 'bold')
-            )
-            self._labels[menu_lower].place(
-                relx=0.1, rely=top, relwidth=0.8, relheight=0.08
-            )
-            top += 0.1
-
         self._labels['mini_menu'] = Tk.Label(
             self._frames['sidebar'],
             name='mini_menu',
             anchor='center',
-            text=":::",
+            text="::",
             fg=self._color_pallet['menu-foreground'],
             bg=self._color_pallet['menu-background'],
-            font=('Arial', 14, 'bold')
+            font=('Arial', 12, 'bold')
+        )
+        self._labels['mini_menu'].place(
+            relx=0.15, rely=0.01, relwidth=0.7, relheight=0.05
         )
         self._labels['mini_menu'].bind('<Button-1>', self._slide_side_bar_in)
-        self._frames['sidebar'].bind("<Leave>", self._slide_side_bar_out)
-        
+        self._labels['mini_menu'].bind('<Enter>', self._invert_colors)
+        self._labels['mini_menu'].bind('<Leave>', self._invert_colors)
+
+    def _invert_colors(self, event):
+        if event.type == Tk.EventType.Enter:
+            event.widget.config(
+                bg = self._color_pallet["menu-foreground"],
+                fg = self._color_pallet["menu-background"]
+            )
+        elif event.type == Tk.EventType.Leave:
+            event.widget.config(
+                fg = self._color_pallet["menu-foreground"],
+                bg = self._color_pallet["menu-background"]
+            )
+
+    def _load_page(self, event=None):
+        name = event.widget.winfo_name()
+        for menu in self._pages.keys():
+            self._pages[menu].visible((name == menu))
 
     def _slide_side_bar_in(self, event=None):
-        print("slide in")
-        self._labels['mini_menu'].place_forget()
-        
         # I can latter add a smooth effect, but so far it will be enough
+        self._frames['sidebar'].unbind("<Leave>")
+        self._frames['sidebar'].place_forget()
+        self._labels['mini_menu'].place_forget()
+        self._frames["sidebar"].place(
+            relx=0.8, rely=0.1, relheight=0.85, relwidth=0.2
+        )
+        self._frames["content"].place_forget()
+        self._frames["content"].place(
+            relx=0, rely=0.1, relwidth = 0.80, relheight=0.85
+        )
+        top = 0.05
+        for menu in self._pages.keys():
+            self._side_menu_options[menu].place(
+                relx=0.1, rely=top, relwidth=0.8, relheight=0.08
+            )
+            top += 0.1
+        self._frames['sidebar'].bind("<Enter>", self._activate_leave)
+
+    def _activate_leave(self, event=None):
+        self._frames['sidebar'].bind("<Leave>", self._slide_side_bar_out)
 
     def _slide_side_bar_out(self, event=None):
         # I can latter add a smooth effect, but so far it will be enough
         self._labels['mini_menu'].place(
-            relx=0.45, rely=0.01, relwidth=0.1, relheight=0.05
+            relx=0.15, rely=0.01, relwidth=0.7, relheight=0.05
         )
+        self._frames['sidebar'].place_forget()
+        self._frames["sidebar"].place(
+            relx=0.95, rely=0.1, relheight=0.85, relwidth=0.05
+        )
+        self._frames["content"].place_forget()
+        self._frames["content"].place(
+            relx=0, rely=0.1, relwidth = 0.95, relheight=0.85
+        )
+        for menu in self._pages.keys():
+            self._side_menu_options[menu].place_forget()
 
     def _create_bottom_bar(self, links=[]):
         self._frames["footer"] = Tk.Frame(
@@ -181,7 +234,14 @@ class GUI():
         )
 
     def _create_pages(self):
-        pass
+        self._frames["content"] = Tk.Frame(
+            self._root,
+            name="content",
+            bg = self._color_pallet["white"]
+        )
+        self._frames["content"].place(
+            relx=0, rely=0.1, relwidth = 0.95, relheight=0.85
+        )
             
 
         

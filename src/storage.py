@@ -1,6 +1,6 @@
 from os import path, getcwd
 import logging 
-import sqlite
+import sqlite3
 
 class Storage():
     def __init__(self, stora_path="", log=None):
