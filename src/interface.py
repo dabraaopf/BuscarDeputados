@@ -53,7 +53,7 @@ class GUI():
             "entry-foregroud-disabled" : "#355C7D",
             "entry-border" : "#2A363B",
             "bottom-background" : "#2A363B",
-            "bottom-foreground" : "#E84A5F",
+            "bottom-foreground" : "#C2B1E3",
             "header-background" : "#99B898",
             "header-foreground" : "#DCEDC2"
         }
@@ -179,8 +179,9 @@ class GUI():
                 bg = self._color_pallet["menu-background"]
             )
 
-    def _load_page(self, event=None):
-        name = event.widget.winfo_name()
+    def _load_page(self, event=None, name=""):
+        if isinstance(event, Tk.Event):
+            name = event.widget.winfo_name()
         for menu in self._pages.keys():
             self._pages[menu].visible((name == menu))
 
@@ -231,6 +232,32 @@ class GUI():
         )
         self._frames["footer"].place(
             relx=0, rely=0.95, relheight=0.05, relwidth=1
+        )
+        self._labels['owner'] = Tk.Label(
+            self._frames["footer"],
+            name="owner",
+            anchor='center',
+            text="DAM",
+            bg=self._color_pallet['bottom-background'],
+            fg=self._color_pallet['bottom-foreground'],
+            font=('Arial', 14, 'bold')
+        )
+        self._labels['owner'].place(
+            relx=0.01, rely=0.1, relwidth=0.1, relheight=0.8
+        )
+        self._entries_values['short-text'] = Tk.StringVar()
+        self._labels['short-text'] = Tk.Entry(
+            self._frames["footer"],
+            name="short-text",
+            textvariable=self._entries_values['short-text'],
+            bg=self._color_pallet['bottom-background'],
+            fg=self._color_pallet['bottom-foreground'],
+            bd=1,
+            highlightbackground=self._color_pallet['bottom-foreground'],
+            font=('Arial', 10)
+        )
+        self._labels['short-text'].place(
+            relx=0.11, rely=0.1, relwidth=0.75, relheight=0.8
         )
 
     def _create_pages(self):

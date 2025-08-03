@@ -1,0 +1,3 @@
+ERROR:INTERFACE:_fill_logs: failed to open the log file <class 'AttributeError'> 'Main' object has no attribute '_log_name'
+ERROR:INTERFACE:_fill_logs: failed to open the log file <class 'AttributeError'> 'Main' object has no attribute '_log_name'
+ERROR:INTERFACE:_fill_logs: failed to open the log file <class 'AttributeError'> 'Main' object has no attribute '_log_name'

@@ -2,6 +2,6 @@
   "name" : "Buscar Deputados",
   "author" : "Daniel A. Melo",
   "version" : "0.0.1",
-  "description": "Automação acessa o site da camara dos deputas e obtem os dados de contato dos deputas mineiros.",
+  "description": "Automação acessa o site da camara dos deputados e obtem os dados de contato dos deputados mineiros.",
   "client" : ""
 }

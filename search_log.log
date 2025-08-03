@@ -1,0 +1,2 @@
+ERROR:SEARCH:_click_on_deputies: failed to click on the element, <class 'NameError'>
+ERROR:SEARCH:_click_quem_sao_link: failed to click on the element, <class 'selenium.common.exceptions.ElementNotInteractableException'>
