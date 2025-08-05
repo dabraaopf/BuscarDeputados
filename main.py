@@ -3,7 +3,7 @@ from tkinter import Tk
 from tkinter import ttk
 from tkinter import *
 from os import path, getcwd
-rom src.search import Search
+from src.search import Search
 from src.storage import Storage
 import threading 
 

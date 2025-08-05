@@ -139,7 +139,6 @@ class Search():
                 #result[0].click()
                 browser.execute_script("arguments[0].click();", result[0])
             except StaleElementReferenceException as e:
-                print("click failed")
                 log.error(f'_click_on_deputies:failed to click on the element,page still loading')
                 raise e
                 #should try more times
@@ -302,7 +301,6 @@ class Search():
         start_pos = value.find("(")
         end_pos = value.find(")")
         party_state = value[start_pos:end_pos]
-        print(party_state)
         pair = party_state.split("-")
         result = {}
         if len(pair) == 2:
@@ -311,9 +309,9 @@ class Search():
         return result
 
     def _wait_for_representative_page_to_load(self):
-        target_class = "nome-deputado"
+        target_class = "l-identificacao-landing"
         code = f"return document.getElementsByClassName('{target_class}');"
-        filter_func = lambda element : print(element.tag_name)
+        filter_func = lambda element : element.tag_name == 'div'
         result = self._basic_search(code, filter_func)
         return (len(result) > 0)
 
@@ -325,18 +323,66 @@ class Search():
         target_tag = "li"
         code = f"return arguments[0].getElementsByTagName('{target_tag}');"
         filter_fund = lambda element : element.tag_name == "li"
+        result = {}
         for block in result:
             items = self._basic_search_from_parent(block, code, filter_fund)
             for item in items:
-                print(item.get_attribute("innerHTML"))
- 
+                data = self._clear_html_tags(item.get_attribute("innerHTML"))
+                if data.find(":") >= 0:
+                    values = data.split(":")
+                    result[values[0]] = values[1]
+        return result
+
+    def _clear_html_tags(self, value):
+        start_pos = value.find("<")
+        end_pos = value.find(">")
+        while start_pos >= 0 and end_pos >= 0:
+            start_pos = value.find("<")
+            end_pos = value.find(">")
+            tag = value[start_pos:end_pos+1]
+            value = value.replace(tag, "", 1)
+        return value.strip()
+
     def _extract_data_from_representative_page(self, link):
         browser = self._get_browser()
         browser.get(link)
         self._wait_for_representative_page_to_load()
-        self._read_personal_information()
+        return self._read_personal_information()
 
-        
+
+    def access_deputies_page(self):
+        self.load_page()
+        self._click_on_deputies()
+        self._click_quem_sao_link()
+        self._wait_for_deputies_search_page_to_load()
+        self._select_mandate()
+        self._click_search_button()
+        self._wait_for_results_page_to_load()
+        return True
+   
+    def get_all_links(self):
+        count = 0
+        max_tries = 100
+        all_data = {}
+        while max_tries > 0:
+            data = self._search._get_deputies_links()
+            for key,value in data.items():
+                all_data[key] = value
+            result = self._change_page()
+            self._wait_for_results_page_to_load()
+            count += 1
+            max_tries -= 1
+            if not result:
+                break
+        return all_data 
+
+    def get_representative_data(self, representative):
+        for key, value in repersentative:
+            party = self.__extract_party_and_state(key)
+            print("Partido: ", party.get("partido",""), " - Estado: ", party.get("estado", ""))
+            self._search._extract_data_from_representative_page(link)
+        return True
+
 
 
 
