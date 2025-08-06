@@ -1,3 +1,154 @@
 ERROR:INTERFACE:_fill_logs: failed to open the log file <class 'AttributeError'> 'Main' object has no attribute '_log_name'
 ERROR:INTERFACE:_fill_logs: failed to open the log file <class 'AttributeError'> 'Main' object has no attribute '_log_name'
 ERROR:INTERFACE:_fill_logs: failed to open the log file <class 'AttributeError'> 'Main' object has no attribute '_log_name'
+ERROR:INTERFACE:_get_representatives_data: failed to get the deputies data 'Search' object has no attribute '_search' <class 'AttributeError'> None
+ERROR:INTERFACE:_get_representatives_data: failed to get the deputies data 'Search' object has no attribute '_search' <class 'AttributeError'> None
+INFO:WDM:====== WebDriver manager ======
+INFO:WDM:Get LATEST geckodriver version for 136.0 firefox
+INFO:WDM:Get LATEST geckodriver version for 136.0 firefox
+INFO:WDM:Get LATEST geckodriver version for 136.0 firefox
+INFO:WDM:Getting latest mozilla release info for v0.36.0
+INFO:WDM:About to download new driver from https://github.com/mozilla/geckodriver/releases/download/v0.36.0/geckodriver-v0.36.0-linux64.tar.gz
+INFO:WDM:Driver downloading response is 200
+INFO:WDM:Get LATEST geckodriver version for 136.0 firefox
+INFO:WDM:Driver has been saved in cache [/home/daniel/.wdm/drivers/geckodriver/linux64/v0.36.0]
+ERROR:INTERFACE:_get_deputies_links failed to get the links _basic_search: Failed to find the element <class 'TimeoutError'>
+ERROR:INTERFACE:_get_representatives_data: failed to get the deputies data _basic_search: Failed to find the element <class 'TimeoutError'> None
+INFO:WDM:====== WebDriver manager ======
+INFO:WDM:Get LATEST geckodriver version for 136.0 firefox
+INFO:WDM:Get LATEST geckodriver version for 136.0 firefox
+INFO:WDM:Driver [/home/daniel/.wdm/drivers/geckodriver/linux64/v0.36.0/geckodriver] found in cache
+ERROR:INTERFACE:_get_representatives_data: failed to get the deputies data cannot access local variable 'data' where it is not associated with a value <class 'UnboundLocalError'> None
+INFO:WDM:====== WebDriver manager ======
+INFO:WDM:Get LATEST geckodriver version for 136.0 firefox
+INFO:WDM:Get LATEST geckodriver version for 136.0 firefox
+INFO:WDM:Driver [/home/daniel/.wdm/drivers/geckodriver/linux64/v0.36.0/geckodriver] found in cache
+ERROR:INTERFACE:_get_deputies_links failed to get the links _basic_search: Failed to find the element <class 'TimeoutError'>
+ERROR:INTERFACE:_get_representatives_data: failed to get the deputies data _basic_search: Failed to find the element <class 'TimeoutError'> None
+INFO:WDM:====== WebDriver manager ======
+INFO:WDM:Get LATEST geckodriver version for 136.0 firefox
+INFO:WDM:Get LATEST geckodriver version for 136.0 firefox
+INFO:WDM:Driver [/home/daniel/.wdm/drivers/geckodriver/linux64/v0.36.0/geckodriver] found in cache
+ERROR:INTERFACE:_get_deputies_links failed to get the links _basic_search: Failed to find the element <class 'TimeoutError'>
+ERROR:INTERFACE:_get_representatives_data: failed to get the deputies data _basic_search: Failed to find the element <class 'TimeoutError'> None
+INFO:WDM:====== WebDriver manager ======
+INFO:WDM:Get LATEST geckodriver version for 136.0 firefox
+INFO:WDM:Get LATEST geckodriver version for 136.0 firefox
+INFO:WDM:Driver [/home/daniel/.wdm/drivers/geckodriver/linux64/v0.36.0/geckodriver] found in cache
+ERROR:INTERFACE:_get_deputies_links failed to get the links _basic_search: Failed to find the element <class 'TimeoutError'>
+ERROR:INTERFACE:_get_representatives_data: failed to get the deputies data _basic_search: Failed to find the element <class 'TimeoutError'> None
+INFO:WDM:====== WebDriver manager ======
+INFO:WDM:Get LATEST geckodriver version for 136.0 firefox
+INFO:WDM:Get LATEST geckodriver version for 136.0 firefox
+INFO:WDM:Driver [/home/daniel/.wdm/drivers/geckodriver/linux64/v0.36.0/geckodriver] found in cache
+ERROR:INTERFACE:_get_deputies_links failed to get the links _basic_search: Failed to find the element <class 'TimeoutError'>
+ERROR:INTERFACE:_get_representatives_data: failed to get the deputies data _basic_search: Failed to find the element <class 'TimeoutError'> None
+INFO:WDM:====== WebDriver manager ======
+INFO:WDM:Get LATEST geckodriver version for 136.0 firefox
+INFO:WDM:Get LATEST geckodriver version for 136.0 firefox
+INFO:WDM:Driver [/home/daniel/.wdm/drivers/geckodriver/linux64/v0.36.0/geckodriver] found in cache
+INFO:WDM:====== WebDriver manager ======
+INFO:WDM:Get LATEST geckodriver version for 136.0 firefox
+INFO:WDM:Get LATEST geckodriver version for 136.0 firefox
+INFO:WDM:Driver [/home/daniel/.wdm/drivers/geckodriver/linux64/v0.36.0/geckodriver] found in cache
+INFO:WDM:====== WebDriver manager ======
+INFO:WDM:Get LATEST geckodriver version for 136.0 firefox
+INFO:WDM:Get LATEST geckodriver version for 136.0 firefox
+INFO:WDM:Driver [/home/daniel/.wdm/drivers/geckodriver/linux64/v0.36.0/geckodriver] found in cache
+INFO:WDM:====== WebDriver manager ======
+INFO:WDM:Get LATEST geckodriver version for 136.0 firefox
+INFO:WDM:Get LATEST geckodriver version for 136.0 firefox
+INFO:WDM:Driver [/home/daniel/.wdm/drivers/geckodriver/linux64/v0.36.0/geckodriver] found in cache
+ERROR:INTERFACE:_get_representatives_data: failed to get the deputies data too many values to unpack (expected 2) <class 'ValueError'> None
+INFO:WDM:====== WebDriver manager ======
+INFO:WDM:Get LATEST geckodriver version for 136.0 firefox
+INFO:WDM:Get LATEST geckodriver version for 136.0 firefox
+INFO:WDM:Driver [/home/daniel/.wdm/drivers/geckodriver/linux64/v0.36.0/geckodriver] found in cache
+ERROR:INTERFACE:_get_representatives_data: failed to get the deputies data name 'key' is not defined <class 'NameError'> None
+INFO:WDM:====== WebDriver manager ======
+INFO:WDM:Get LATEST geckodriver version for 136.0 firefox
+INFO:WDM:Get LATEST geckodriver version for 136.0 firefox
+INFO:WDM:Driver [/home/daniel/.wdm/drivers/geckodriver/linux64/v0.36.0/geckodriver] found in cache
+INFO:WDM:====== WebDriver manager ======
+INFO:WDM:Get LATEST geckodriver version for 136.0 firefox
+INFO:WDM:Get LATEST geckodriver version for 136.0 firefox
+INFO:WDM:Driver [/home/daniel/.wdm/drivers/geckodriver/linux64/v0.36.0/geckodriver] found in cache
+INFO:WDM:====== WebDriver manager ======
+INFO:WDM:Get LATEST geckodriver version for 136.0 firefox
+INFO:WDM:Get LATEST geckodriver version for 136.0 firefox
+INFO:WDM:Driver [/home/daniel/.wdm/drivers/geckodriver/linux64/v0.36.0/geckodriver] found in cache
+INFO:WDM:====== WebDriver manager ======
+INFO:WDM:Get LATEST geckodriver version for 136.0 firefox
+INFO:WDM:Get LATEST geckodriver version for 136.0 firefox
+INFO:WDM:Driver [/home/daniel/.wdm/drivers/geckodriver/linux64/v0.36.0/geckodriver] found in cache
+INFO:WDM:====== WebDriver manager ======
+INFO:WDM:Get LATEST geckodriver version for 136.0 firefox
+INFO:WDM:Get LATEST geckodriver version for 136.0 firefox
+INFO:WDM:Driver [/home/daniel/.wdm/drivers/geckodriver/linux64/v0.36.0/geckodriver] found in cache
+INFO:WDM:====== WebDriver manager ======
+INFO:WDM:Get LATEST geckodriver version for 136.0 firefox
+INFO:WDM:Get LATEST geckodriver version for 136.0 firefox
+INFO:WDM:Driver [/home/daniel/.wdm/drivers/geckodriver/linux64/v0.36.0/geckodriver] found in cache
+INFO:WDM:====== WebDriver manager ======
+INFO:WDM:Get LATEST geckodriver version for 136.0 firefox
+INFO:WDM:Get LATEST geckodriver version for 136.0 firefox
+INFO:WDM:Driver [/home/daniel/.wdm/drivers/geckodriver/linux64/v0.36.0/geckodriver] found in cache
+INFO:WDM:====== WebDriver manager ======
+INFO:WDM:Get LATEST geckodriver version for 136.0 firefox
+INFO:WDM:Get LATEST geckodriver version for 136.0 firefox
+INFO:WDM:Driver [/home/daniel/.wdm/drivers/geckodriver/linux64/v0.36.0/geckodriver] found in cache
+ERROR:INTERFACE:_get_representatives_data: failed to get the deputies data Invalid column index col0 <class '_tkinter.TclError'> None
+INFO:WDM:====== WebDriver manager ======
+INFO:WDM:Get LATEST geckodriver version for 136.0 firefox
+INFO:WDM:Get LATEST geckodriver version for 136.0 firefox
+INFO:WDM:Driver [/home/daniel/.wdm/drivers/geckodriver/linux64/v0.36.0/geckodriver] found in cache
+INFO:WDM:====== WebDriver manager ======
+INFO:WDM:Get LATEST geckodriver version for 136.0 firefox
+INFO:WDM:Get LATEST geckodriver version for 136.0 firefox
+INFO:WDM:Driver [/home/daniel/.wdm/drivers/geckodriver/linux64/v0.36.0/geckodriver] found in cache
+ERROR:INTERFACE:_get_representatives_data: failed to get the deputies data Column # 1 out of range <class '_tkinter.TclError'> None
+INFO:WDM:====== WebDriver manager ======
+INFO:WDM:Get LATEST geckodriver version for 136.0 firefox
+INFO:WDM:Get LATEST geckodriver version for 136.0 firefox
+INFO:WDM:Driver [/home/daniel/.wdm/drivers/geckodriver/linux64/v0.36.0/geckodriver] found in cache
+ERROR:INTERFACE:_get_representatives_data: failed to get the deputies data Invalid column index col0 <class '_tkinter.TclError'> None
+INFO:WDM:====== WebDriver manager ======
+INFO:WDM:Get LATEST geckodriver version for 136.0 firefox
+INFO:WDM:Get LATEST geckodriver version for 136.0 firefox
+INFO:WDM:Driver [/home/daniel/.wdm/drivers/geckodriver/linux64/v0.36.0/geckodriver] found in cache
+ERROR:INTERFACE:_get_representatives_data: failed to get the deputies data Invalid column index col0 <class '_tkinter.TclError'> None
+INFO:WDM:====== WebDriver manager ======
+INFO:WDM:Get LATEST geckodriver version for 136.0 firefox
+INFO:WDM:Get LATEST geckodriver version for 136.0 firefox
+INFO:WDM:Driver [/home/daniel/.wdm/drivers/geckodriver/linux64/v0.36.0/geckodriver] found in cache
+ERROR:INTERFACE:_get_representatives_data: failed to get the deputies data cannot access local variable 'previous_perc' where it is not associated with a value <class 'UnboundLocalError'> None
+INFO:WDM:====== WebDriver manager ======
+INFO:WDM:Get LATEST geckodriver version for 136.0 firefox
+INFO:WDM:Get LATEST geckodriver version for 136.0 firefox
+INFO:WDM:Driver [/home/daniel/.wdm/drivers/geckodriver/linux64/v0.36.0/geckodriver] found in cache
+ERROR:INTERFACE:_get_representatives_data: failed to get the deputies data Search.get_representative_data() takes 3 positional arguments but 4 were given <class 'TypeError'> None
+INFO:WDM:====== WebDriver manager ======
+INFO:WDM:Get LATEST geckodriver version for 136.0 firefox
+INFO:WDM:Get LATEST geckodriver version for 136.0 firefox
+INFO:WDM:Driver [/home/daniel/.wdm/drivers/geckodriver/linux64/v0.36.0/geckodriver] found in cache
+ERROR:INTERFACE:_get_representatives_data: failed to get the deputies data name 'previous_per' is not defined <class 'NameError'> None
+INFO:WDM:====== WebDriver manager ======
+INFO:WDM:Get LATEST geckodriver version for 136.0 firefox
+INFO:WDM:Get LATEST geckodriver version for 136.0 firefox
+INFO:WDM:Driver [/home/daniel/.wdm/drivers/geckodriver/linux64/v0.36.0/geckodriver] found in cache
+INFO:WDM:====== WebDriver manager ======
+INFO:WDM:Get LATEST geckodriver version for 136.0 firefox
+INFO:WDM:Get LATEST geckodriver version for 136.0 firefox
+INFO:WDM:Driver [/home/daniel/.wdm/drivers/geckodriver/linux64/v0.36.0/geckodriver] found in cache
+INFO:WDM:====== WebDriver manager ======
+INFO:WDM:Get LATEST geckodriver version for 136.0 firefox
+INFO:WDM:Get LATEST geckodriver version for 136.0 firefox
+INFO:WDM:Driver [/home/daniel/.wdm/drivers/geckodriver/linux64/v0.36.0/geckodriver] found in cache
+INFO:WDM:====== WebDriver manager ======
+INFO:WDM:Get LATEST geckodriver version for 136.0 firefox
+INFO:WDM:Get LATEST geckodriver version for 136.0 firefox
+INFO:WDM:Driver [/home/daniel/.wdm/drivers/geckodriver/linux64/v0.36.0/geckodriver] found in cache
+INFO:WDM:====== WebDriver manager ======
+INFO:WDM:Get LATEST geckodriver version for 136.0 firefox
+INFO:WDM:Get LATEST geckodriver version for 136.0 firefox
+INFO:WDM:Driver [/home/daniel/.wdm/drivers/geckodriver/linux64/v0.36.0/geckodriver] found in cache

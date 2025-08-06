@@ -239,7 +239,7 @@ class Search():
         log = self._get_logger()
         target_class = "nome-deputado"
         code = f"return document.getElementsByClassName('{target_class}');"
-        filter_func = lambda element: str(element.tag_name == "a")
+        filter_func = lambda element: element.tag_name == "a"
         tries = 3
         while tries > 0:
             try:
@@ -250,7 +250,7 @@ class Search():
                     link = str(representative.get_attribute("href"))
                     data[name] = link
             except StaleElementReferenceException as e:
-                print("failed but i'll try again")
+                pass
             except Exception as e:
                 log.error(f'_get_deputies_links failed to get the links {e} {type(e)}')
                 raise e
@@ -297,16 +297,20 @@ class Search():
                 return True
         return False
 
-    def _extract_party_and_state(self, value):
+    def _extract_name_party_and_state(self, value):
         start_pos = value.find("(")
         end_pos = value.find(")")
-        party_state = value[start_pos:end_pos]
-        pair = party_state.split("-")
-        result = {}
-        if len(pair) == 2:
-            result["partido"] = pair[0].replace("(","").replace("(","")
-            result["estado"] = pair[1].replace("(","").replace(")","")
-        return result
+        name = ""
+        party = ""
+        state = ""
+        if end_pos > start_pos and start_pos >= 0:
+            party_state = value[start_pos:end_pos]
+            pair = party_state.split("-")
+            name = value[0:start_pos].strip()
+            if len(pair) == 2:
+                party = pair[0].replace("(","").replace("(","")
+                state = pair[1].replace("(","").replace(")","")
+        return name, party, state
 
     def _wait_for_representative_page_to_load(self):
         target_class = "l-identificacao-landing"
@@ -319,18 +323,20 @@ class Search():
         target_class = "informacoes-deputado"
         code = f"return document.getElementsByClassName('{target_class}');"
         filter_func = lambda element : element.tag_name == "ul" 
-        result = self._basic_search(code, filter_func)
+        blocks = self._basic_search(code, filter_func)
         target_tag = "li"
         code = f"return arguments[0].getElementsByTagName('{target_tag}');"
         filter_fund = lambda element : element.tag_name == "li"
         result = {}
-        for block in result:
+        for block in blocks:
             items = self._basic_search_from_parent(block, code, filter_fund)
             for item in items:
                 data = self._clear_html_tags(item.get_attribute("innerHTML"))
                 if data.find(":") >= 0:
                     values = data.split(":")
-                    result[values[0]] = values[1]
+                    key = str(values[0]).replace("\n","").strip()
+                    value = str(values[1]).replace("\n","").strip()
+                    result[key] = value
         return result
 
     def _clear_html_tags(self, value):
@@ -365,7 +371,7 @@ class Search():
         max_tries = 100
         all_data = {}
         while max_tries > 0:
-            data = self._search._get_deputies_links()
+            data = self._get_deputies_links()
             for key,value in data.items():
                 all_data[key] = value
             result = self._change_page()
@@ -376,12 +382,17 @@ class Search():
                 break
         return all_data 
 
-    def get_representative_data(self, representative):
-        for key, value in repersentative:
-            party = self.__extract_party_and_state(key)
-            print("Partido: ", party.get("partido",""), " - Estado: ", party.get("estado", ""))
-            self._search._extract_data_from_representative_page(link)
-        return True
+    def get_representative_data(self, representative, link):
+        name, party, state = self._extract_name_party_and_state(representative)        
+        result = self._extract_data_from_representative_page(link)
+        if isinstance(result, dict):
+            result["Nome"] = name
+            result["Estado"] = state
+            result["Partido"] = party
+        result["Status"] = "ativo"
+        if result.get("E-mail", "") == "":
+            result["Status"] = "inativo"
+        return result 
 
 
 

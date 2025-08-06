@@ -252,8 +252,10 @@ class GUI():
             textvariable=self._entries_values['short-text'],
             bg=self._color_pallet['bottom-background'],
             fg=self._color_pallet['bottom-foreground'],
-            bd=1,
-            highlightbackground=self._color_pallet['bottom-foreground'],
+            bd=0,
+            highlightbackground=self._color_pallet['bottom-background'],
+            highlightthickness=1,
+            highlightcolor=self._color_pallet['bottom-background'],
             font=('Arial', 10)
         )
         self._labels['short-text'].place(

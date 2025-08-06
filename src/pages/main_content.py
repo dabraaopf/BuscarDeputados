@@ -20,18 +20,12 @@ class MainContent(Template):
         self._labels['deputados'].place(
             relx=0.01, rely=0.05, relwidth=0.2, relheight=0.07
         )
-        self._entries_values['representatives'] = Tk.StringVar()
-        self._entries['representatives'] = Tk.Listbox(
+        columns = ["col0", "col1", "col2", "col3", "col4"]
+        self._entries['representatives'] = ttk.Treeview(
             self._main,
             name='representatives',
-            listvariable = self._entries_values['representatives'],
-            bg = self._color_pallet["label-background-enabled"],
-            fg = self._color_pallet["label-foreground-enabled"],
-            font=("Arial", 10, 'bold'),
-            highlightbackground = self._color_pallet["menu-background"],
-            bd = 1,
-            selectbackground = self._color_pallet["menu-background"],
-            selectmode = Tk.SINGLE,
+            columns=columns,
+            show='headings'
         )
         self._entries['representatives'].place(
             relx=0.01, rely=0.12, relwidth = 0.98, relheight=0.75
