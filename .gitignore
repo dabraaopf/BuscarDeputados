@@ -1,4 +1,4 @@
 venv
 .venv
 credentials.venv
-*.py.swp
+*.*.swp
